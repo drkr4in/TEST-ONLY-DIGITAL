@@ -19,6 +19,8 @@
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "style-loader": "^3.3.2",
-    "svg-inline-loader": "^0.8.2"
+    "svg-inline-loader": "^0.8.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4"
   }
 }

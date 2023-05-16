@@ -4,14 +4,20 @@ const plug = require("html-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: {
-    filename: path.resolve(__dirname, "src/index.js"),
+    filename: path.resolve(__dirname, "src/index.ts"),
   },
+  devtool: "inline-source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.svg$/,
         loader: "file-loader",
@@ -31,6 +37,9 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new plug({
